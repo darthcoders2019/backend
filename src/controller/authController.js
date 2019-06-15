@@ -125,7 +125,9 @@ module.exports = function () {
                 else
                     res.status(500).send(err);
             } else {
-                res.status(200).send("Member register successfully");
+                res.status(200).send(JSON.stringify({
+                    msg: "Member register successfully"
+                }));
             }
 
         });

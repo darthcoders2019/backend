@@ -70,8 +70,7 @@ app.use('/api/auth', require('./route/authRoute')());
 app.use('/users', restify('User'));
 
 app.post('/api/images', parser.single("image"), (req, res) => {
-    console.log(req.file)
-    // to see what is returned to you  const image = {};  image.url = req.file.url;  image.id = req.file.public_id;
+    res.send(req.file);
 });
 
 // app.use('api/upload', require('./route/uploadRoute')());
