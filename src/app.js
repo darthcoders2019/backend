@@ -65,7 +65,7 @@ app.use('/version', (req, res) => {
 
 app.use('/api/public/auth', require('./route/authRoute')());
 
-app.post('/api/images', parser.single("image"), (req, res) => {
+app.post('/api/public/images', parser.single("image"), (req, res) => {
     res.send(req.file);
 });
 
