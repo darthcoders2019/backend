@@ -33,9 +33,6 @@ module.exports = function () {
 
         function checkUserPassword(result, callback) {
 
-            console.log(result);
-
-
             bcrypt.compare(req.body.password, result.user.password, function (err, value) {
                 if (value)
                     callback(err, result);
