@@ -63,17 +63,18 @@ app.use('/version', (req, res) => {
     res.send(package.version);
 });
 
-app.use('/api/auth', require('./route/authRoute')());
-
-//app.use(middleware.auth);
-
-app.use('/users', restify('User'));
-
-app.use('/posts', restify('Post'));
+app.use('/api/public/auth', require('./route/authRoute')());
 
 app.post('/api/images', parser.single("image"), (req, res) => {
     res.send(req.file);
 });
+
+app.use('/api/private/posts', restify('Post'));
+
+
+//app.use(middleware.auth);
+
+app.use('/api/private/users', restify('User'));
 
 // app.use('api/upload', require('./route/uploadRoute')());
 
