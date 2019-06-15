@@ -7,7 +7,10 @@ const express = require('express'),
     package = require('../package.json'),
     restify = mrq.restify,
     passport = require('passport'),
-    config = require('./app.config');
+    config = require('./app.config'),
+    multer = require("multer"),
+    cloudinary = require("cloudinary"),
+    cloudinaryStorage = require("multer-storage-cloudinary");
 
 let middleware = require('./middleware');
 
@@ -29,6 +32,27 @@ app.use(mrq.db);
 app.use(passport.initialize());
 app.use(middleware.cors);
 
+cloudinary.config({
+    cloud_name: config.cloudinary.cloud_name,
+    api_key: config.cloudinary.api_key,
+    api_secret: config.cloudinary.api_secret
+});
+
+const storage = cloudinaryStorage({
+    cloudinary: cloudinary,
+    folder: "darthCoders",
+    allowedFormats: ["jpg", "png"],
+    transformation: [{
+        width: 500,
+        height: 500,
+        crop: "limit"
+    }]
+});
+
+const parser = multer({
+    storage: storage
+});
+
 //public route
 
 // app.use('/', (req, res) => {
@@ -44,6 +68,13 @@ app.use('/api/auth', require('./route/authRoute')());
 //app.use(middleware.auth);
 
 app.use('/users', restify('User'));
+
+app.post('/api/images', parser.single("image"), (req, res) => {
+    console.log(req.file)
+    // to see what is returned to you  const image = {};  image.url = req.file.url;  image.id = req.file.public_id;
+});
+
+// app.use('api/upload', require('./route/uploadRoute')());
 
 app.listen(config.PORT, () => {
     console.log('Service is listening on port', config.PORT);

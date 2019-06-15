@@ -25,5 +25,11 @@ module.exports = {
         app_id: "445281516310886",
         app_secret: "61fd03fae23d92c0225bf66d83a47545",
         callback: "http://localhost:9060/api/auth/facebook/callback"
+    },
+    cloudinary: {
+        api_key: "538459828762377",
+        cloud_name: "du5ajbfje",
+        api_secret: "Dm2cKAzKEtQ8TlfAhx-aZt9XPEA"
+
     }
 }

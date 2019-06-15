@@ -47,7 +47,8 @@ module.exports = function () {
             User.update({
                 _id: result.user.id
             }, {
-                'lastlogin': new Date()
+                'lastlogin': new Date(),
+                isActive: true
             }, function (err, data) {
                 callback(err, result);
             });
@@ -105,6 +106,7 @@ module.exports = function () {
                 email: req.body.email,
                 password: req.body.password,
                 fullname: req.body.fullname,
+                isActive: false,
                 lat: req.body.lat,
                 lng: req.body.lng
 
