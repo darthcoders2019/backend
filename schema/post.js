@@ -6,6 +6,9 @@ const postSchema = new Schema({
     image_url: {
         type: String
     },
+    image_name: {
+        type: String
+    },
     description: {
         type: String
     },

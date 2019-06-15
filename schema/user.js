@@ -32,6 +32,12 @@ const userSchema = new Schema({
     },
     lng: {
         type: String
+    },
+    avatar_url: {
+        type: String
+    },
+    avatar_name: {
+        type: String
     }
 });
 
