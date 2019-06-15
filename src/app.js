@@ -69,7 +69,7 @@ app.post('/api/public/images', parser.single("image"), (req, res) => {
     res.send(req.file);
 });
 
-app.use('/api/private/posts', restify('Post'));
+app.use('/api/public/posts', restify('Post'));
 
 
 //app.use(middleware.auth);
