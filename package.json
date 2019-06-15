@@ -1,0 +1,45 @@
+{
+  "name": "nodejs-backend-service",
+  "version": "0.0.1",
+  "description": "Service running for CodenameTashley",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "node src/app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Tashley <tashleyvivesh@gmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-jscs": "^3.0.2",
+    "gulp-jshint": "^2.0.0",
+    "gulp-mocha": "^2.2.0",
+    "gulp-nodemon": "^2.0.4",
+    "jshint": "^2.8.0",
+    "jshint-stylish": "^2.1.0",
+    "mocha": "^2.3.4",
+    "should": "^8.0.2",
+    "unit.js": "^2.0.0"
+  },
+  "dependencies": {
+    "bcrypt": "^3.0.6",
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3",
+    "helmet": "3.9.0",
+    "jwt-async": "^1.1.2",
+    "jwt-simple": "^0.5.6",
+    "moment": "2.20.1",
+    "mongoose": "^4.10.6",
+    "mongoose-auto-number": "^1.0.2",
+    "mongoose-rest-query": "^0.1.4",
+    "mongoose-sanitize-json": "1.0.1",
+    "morgan": "^1.8.2",
+    "passport": "^0.4.0",
+    "passport-facebook": "^3.0.0"
+  },
+  "engines": {
+    "node": "8.11.2",
+    "npm": "6.0.1"
+  }
+}
