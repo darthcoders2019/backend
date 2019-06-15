@@ -3,32 +3,24 @@ const mongoose = require('mongoose'),
     Schema = mongoose.Schema;
 
 const postSchema = new Schema({
-    fullname: {
-        type: String,
-        required: true
+    image_url: {
+        type: String
     },
-    username: {
-        type: String,
-        required: true
+    description: {
+        type: String
     },
-    email: {
-        type: String,
-        required: true,
-        match: [/.+\@.+\..+/, 'Please fill a valid email address']
+    user_id: {
+        type: Schema.Types.ObjectId,
+        ref: 'User'
     },
-    password: {
-        type: String,
-        required: true,
-        select: false
-    },
-    lastlogin: {
+    tags: [],
+    post_date: {
         type: Date,
         default: new Date()
     },
-    isActive: {
-        type: Boolean,
-        required: true,
-        default: true
+    likes: {
+        type: Number,
+        default: 0
     }
 });
 

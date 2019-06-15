@@ -69,6 +69,8 @@ app.use('/api/auth', require('./route/authRoute')());
 
 app.use('/users', restify('User'));
 
+app.use('/posts', restify('Post'));
+
 app.post('/api/images', parser.single("image"), (req, res) => {
     res.send(req.file);
 });
