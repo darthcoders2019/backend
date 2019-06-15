@@ -24,9 +24,15 @@ module.exports = function () {
                 })
                 .select('email password isActive')
                 .exec(function (err, user) {
-                    result = {};
-                    result.user = user;
-                    callback(err, result);
+                    console.log(err)
+                    if (user && user.password) {
+                        result = {};
+                        result.user = user;
+                        callback(err, result);
+                    } else
+                        res.status(401).send(JSON.stringify({
+                            error: "Invalid Email or Password"
+                        }));
                 });
 
         }
