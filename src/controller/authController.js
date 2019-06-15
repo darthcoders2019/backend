@@ -102,64 +102,31 @@ module.exports = function () {
 
         }
 
-        function verifyIfUsernameAvailable(result, callback) {
-
-            User.findOne({
-                email: req.body.username
-            }, function (err, user) {
-
-                if (user) {
-                    var error = new Error('UserNameNotAvailable');
-                    error.name = 'Username not available';
-                    error.httpStatusCode = 409;
-
-                    callback(error, null);
-                } else
-                    callback(null, {});
-            });
-
-        }
-
         function createUser(result, callback) {
 
             var user = {
                 email: req.body.email,
                 password: req.body.password,
-                username: req.body.username,
-                fullname: req.body.fullname
+                fullname: req.body.fullname,
+                lat: req.body.lat,
+                lng: req.body.lng
+
             };
 
             User.create(user, function (err, data) {
-                result.user = data.toJSON();
-                delete result.user.password
                 callback(err, result);
             });
         }
 
-        function generateJWT(result, callback) {
-
-            var data = {
-                id: result.user.id,
-                email: result.user.email
-            };
-
-            result.token = jwt.generate(data, config.jwt.durationShort, function (err, data) {
-                result.token = data;
-                callback(null, result);
-            });
-
-        }
-
-        async.waterfall([verifyIfEmailAvailable, verifyIfUsernameAvailable, createUser, generateJWT], function (err, result) {
+        async.waterfall([verifyIfEmailAvailable, createUser], function (err, result) {
 
             if (err) {
-
                 if (err.httpStatusCode == 409)
                     res.status(err.httpStatusCode).send(err);
                 else
                     res.status(500).send(err);
             } else {
-                res.status(200).send(result);
+                res.status(200).send("Member register successfully");
             }
 
         });

@@ -8,10 +8,6 @@ const userSchema = new Schema({
         type: String,
         required: true
     },
-    username: {
-        type: String,
-        required: true
-    },
     email: {
         type: String,
         required: true,
@@ -30,6 +26,12 @@ const userSchema = new Schema({
         type: Boolean,
         required: true,
         default: true
+    },
+    lat: {
+        type: String
+    },
+    lng: {
+        type: String
     }
 });
 

@@ -41,7 +41,7 @@ app.use('/version', (req, res) => {
 
 app.use('/api/auth', require('./route/authRoute')());
 
-app.use(middleware.auth);
+//app.use(middleware.auth);
 
 app.use('/users', restify('User'));
 
