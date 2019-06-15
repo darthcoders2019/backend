@@ -63,7 +63,8 @@ module.exports = function () {
 
             jwt.generate(data, config.jwt.durationLong, function (err, data) {
                 callback(null, {
-                    token: data
+                    token: data,
+                    id: result.user.id
                 });
             });
         }
