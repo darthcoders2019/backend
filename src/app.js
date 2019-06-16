@@ -28,9 +28,20 @@ app.use(bodyParser.urlencoded({
     extended: true
 }));
 
+app.use(function (req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, x-client-id, x-accounting-id");
+    res.header("Access-Control-Allow-Methods", "GET,POST,PUT,DELETE,OPTIONS");
+
+    if (req.method === 'OPTIONS') {
+        res.end();
+    } else
+        next();
+});
+
 app.use(mrq.db);
 app.use(passport.initialize());
-app.use(middleware.cors);
+// app.use(middleware.cors);
 
 cloudinary.config({
     cloud_name: config.cloudinary.cloud_name,
