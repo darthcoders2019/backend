@@ -24,13 +24,16 @@ module.exports = function () {
             .lean()
             .populate('user_id')
             .exec(function (err, posts) {
+                if (lat) {
+                    posts.forEach(post => {
+                        var d = calcCrow(lat, lng, post.user_id.lat, post.user_id.lng);
 
-                posts.forEach(post => {
-                    var d = calcCrow(lat, lng, post.user_id.lat, post.user_id.lng);
+                        if (d < 20)
+                            postByDistance.push(post);
+                    });
+                } else
+                    postByDistance = posts;
 
-                    if (d < 20)
-                        postByDistance.push(post);
-                });
 
                 res.status(200).send(postByDistance)
             });
