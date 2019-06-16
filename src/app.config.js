@@ -30,6 +30,6 @@ module.exports = {
         api_key: "538459828762377",
         cloud_name: "du5ajbfje",
         api_secret: "Dm2cKAzKEtQ8TlfAhx-aZt9XPEA"
-
-    }
+    },
+    cloud_messaging_key: "key=AAAABP1jyI4:APA91bEPCGjYzWLhIdn7maa3HUfrBrO34nj_h6jrKkbZaLavvKq6mekEaivjvkUQ2P0KVoHhqopJSI6hbWU038EbU3Qq9VjAfe9AKPjrbf3LBv27w9eLl54lgJInP1CWVIVCfwOckmYm"
 }

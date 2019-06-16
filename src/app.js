@@ -55,10 +55,6 @@ const parser = multer({
 
 //public route
 
-// app.use('/', (req, res) => {
-//     res.send('Welcome to the service');
-// });
-
 app.use('/version', (req, res) => {
     res.send(package.version);
 });
@@ -69,7 +65,9 @@ app.post('/api/public/images', parser.single("image"), (req, res) => {
     res.send(req.file);
 });
 
-app.use('/api/public/posts', restify('Post'));
+app.use('/api/public/posts', require('./route/postRoute')());
+
+//app.use('/api/public/posts', restify('Post'));
 
 
 //app.use(middleware.auth);

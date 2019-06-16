@@ -38,8 +38,13 @@ const userSchema = new Schema({
     },
     avatar_name: {
         type: String
+    },
+    fcmToken: {
+        type: String
     }
 });
+
+
 
 userSchema.plugin(sanitizeJson);
 
