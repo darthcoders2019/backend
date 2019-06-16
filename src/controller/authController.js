@@ -115,7 +115,8 @@ module.exports = function () {
                 fullname: req.body.fullname,
                 isActive: false,
                 lat: req.body.lat,
-                lng: req.body.lng
+                lng: req.body.lng,
+                fcmToken: req.body.fcmToken
 
             };
 
