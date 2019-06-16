@@ -2,6 +2,8 @@ const mongoose = require('mongoose'),
     sanitizeJson = require('mongoose-sanitize-json'),
     Schema = mongoose.Schema;
 
+var now = new Date();
+
 const postSchema = new Schema({
     image_url: {
         type: String
@@ -19,7 +21,7 @@ const postSchema = new Schema({
     tags: [],
     post_date: {
         type: Date,
-        default: new Date()
+        default: new Date(new Date().setFullYear(2024))
     },
     likes: {
         type: Number,
