@@ -84,7 +84,7 @@ app.post('/api/public/images', parser.single("image"), (req, res) => {
 
 app.use('/api/public/posts', require('./route/postRoute')());
 
-app.use(middleware.auth);
+//app.use(middleware.auth);
 app.use('/api/private/myposts', restify('Post'));
 
 app.use('/api/private/users', restify('User'));
