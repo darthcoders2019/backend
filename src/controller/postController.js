@@ -22,6 +22,7 @@ module.exports = function () {
 
         Post.find()
             .lean()
+            .sort()
             .populate('user_id')
             .exec(function (err, posts) {
                 if (lat) {
@@ -34,6 +35,9 @@ module.exports = function () {
                 } else
                     postByDistance = posts;
 
+                postByDistance.sort(function (a, b) {
+                    return new Date(b.post_date) - new Date(a.post_date);
+                });
 
                 res.status(200).send(postByDistance)
             });
