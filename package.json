@@ -22,7 +22,7 @@
     "unit.js": "^2.0.0"
   },
   "dependencies": {
-    "bcrypt": "^3.0.6",
+    "bcrypt": "^5.0.0",
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.17.2",
     "cloudinary": "^1.14.0",
