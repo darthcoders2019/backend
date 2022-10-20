@@ -32,7 +32,7 @@
     "jwt-async": "^1.1.2",
     "jwt-simple": "^0.5.6",
     "moment": "2.20.1",
-    "mongoose": "^4.10.6",
+    "mongoose": "^4.13.21",
     "mongoose-auto-number": "^1.0.2",
     "mongoose-rest-query": "^0.1.4",
     "mongoose-sanitize-json": "1.0.1",
