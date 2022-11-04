@@ -10,14 +10,14 @@
   "author": "Tashley <tashleyvivesh@gmail.com>",
   "license": "ISC",
   "devDependencies": {
-    "gulp": "^3.9.0",
-    "gulp-jscs": "^3.0.2",
+    "gulp": "^4.0.2",
+    "gulp-jscs": "^4.1.0",
     "gulp-jshint": "^2.0.0",
-    "gulp-mocha": "^2.2.0",
+    "gulp-mocha": "^8.0.0",
     "gulp-nodemon": "^2.0.4",
     "jshint": "^2.8.0",
     "jshint-stylish": "^2.1.0",
-    "mocha": "^2.3.4",
+    "mocha": "^10.1.0",
     "should": "^8.0.2",
     "unit.js": "^2.0.0"
   },
